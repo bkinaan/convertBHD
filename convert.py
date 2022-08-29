@@ -8,13 +8,18 @@ print("""
 
 inputVal = input("Enter a value from 1-4: ")
 
-if (inputVal == "4") {
+if (inputVal == "4"):
 	inputNum = input("Input the starting value: 0x")
-	if (type(inputNum) == int):
-		num = inputNum
+	num = int(inputNum)
+	if (type(num) == int):
 		value = 0
 		index = 0
 		while (num != 0):
-			temp = inputNum % 10
-			value += temp * 16 ** index
-}
+			temp = num % 10
+			value += temp * (16 ** index)
+			index += 1
+			num = num / 10
+			num = int(num)
+		print(value)
+	else:
+		print ("Your input was not solely integers. Ending program.")
